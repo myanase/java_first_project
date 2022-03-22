@@ -1,4 +1,8 @@
 /*茶色：rgb(126,95,77)*/
+
+/*
+ *全画面共通デザイン
+ */
 * {
    box-sizing: border-box;
 }
@@ -57,7 +61,7 @@ height: 25px;
 
 
 /*
- * 商品一覧
+ * 商品一覧画面
  */
 .product-list img{
 	width: 100px;
@@ -77,4 +81,85 @@ height: 25px;
    height: 200px;
    text-align:center;
    vertical-align:middle;
+}
+#product_name{
+	font-weight:bold;
+	border-bottom: dashed 2px #ffff00;
+}
+#product_detail{
+	font-size:5px;
+}
+
+/* 絞り込み */
+.siborikomi{
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px #7e5f4d;
+    border-bottom: solid 2px #7e5f4d;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+.siborikomi:before, .siborikomi:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.siborikomi:before {left: 10px;}
+.siborikomi:after {right: 10px;}
+.siborikomi p {
+    margin: 0; 
+    padding: 0;
+}
+.search-box_label {
+  font-weight: bold;
+  color:#7e5f4d;
+}
+.is-hide {
+  display: none;
+}
+.radiobutton {
+  display: none;
+}
+label {
+  padding: 3px 5px;
+  color:#7e5f4d;
+}
+.radiobutton:checked + label {
+  color:#7e5f4d;
+  font-weight:bold;
+  background:linear-gradient(transparent 60%, #ffff00 60%);
+}
+
+.search-box {
+	position: relative;
+	margin: 5px 3%;
+}
+.search-box input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #7e5f4d;
+	border: none;
+	border-bottom: 2px solid #7e5f4d;
+	background: transparent;
+}
+.freeword input[type='text']:focus {
+	border-bottom: 2px solid #ffff00;
+	outline: none;
+}
+#search{
+	border-radius: 10px;
+	background-color: #ffff00;
+	color: #7e5f4d;
+	border: solid 2px #7e5f4d;
 }

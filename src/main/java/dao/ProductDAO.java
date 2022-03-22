@@ -40,31 +40,43 @@ public class ProductDAO{
 	static Connection connection = null;
 	static PreparedStatement statement = null;
 	
-	public List<Product> search(String focus, String keyword) throws Exception{
+	public List<Product> search(String sort, String genre, String keyword) throws Exception{
 		List<Product> list = new ArrayList<>();
 		
 		/*
 		 * 絞り込み検索
 		 *  null：絞り込みなし
-		 *  genre：1.ノーマル 2.惣菜 3.菓子
-		 *  freeword:フリーワード検索
-		 *  price：○○円以下
+		 *  sort:新着順(new)、価格順(price)、人気順(popular)
+		 *  genre：1.食事パン(normal) 2.惣菜(souzai) 3.菓子(desert)
+		 *  keyword:フリーワード検索
 		 */
 		String sen = "select * from product ";
-		if(focus == "genre") {
-			sen = sen + "where genre = ?";
-		}else if(focus == "freeword"){
-			sen = sen + "where name like ?";
-		}else if(focus == "price"){
-			sen = sen + "where price <= ?";
+		//genre,keyword
+		if(genre != null && keyword != null) {
+			sen = sen + "where genre = ? and name like ? ";
+		}else if(genre != null && keyword == null) {
+			sen = sen + "where genre = ? ";
+		}else if(genre == null && keyword != null) {
+			sen = sen + "where name like ? ";
+		}
+		
+		//sort
+		if(sort == "price") {
+			sen = sen + "order by price";
+		}else if(sort == "popular") {
+			sen = sen + "order by image desc";
 		}
 		
 		try {
 			connection = getConnection();
 			statement = connection.prepareStatement(sen);
-			if(focus == "genre" || focus == "price") {
-				statement.setInt(1, Integer.parseInt(keyword));
-			}else if(focus == "freeword"){
+			//genre,keyword
+			if(genre != null && keyword != null) {
+				statement.setInt(1, Integer.parseInt(genre));
+				statement.setString(2, "%"+keyword+"%");
+			}else if(genre != null && keyword == null) {
+				statement.setInt(1, Integer.parseInt(genre));
+			}else if(genre == null && keyword != null) {
 				statement.setString(1, "%"+keyword+"%");
 			}
 			
