@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="../header.jsp" %>
-<%
-int i = 1;
-%>
 
 <form method="post">
 <table id="cartlist">
@@ -28,16 +25,13 @@ int i = 1;
 		</td>
 		<td>
 			<p>
-			<select name="count<%=i %>">
+			<select name="count${c.id}">
 			<c:forEach begin="0" end="10" step="1" varStatus="status">
 				<option value="${status.index}">${status.index}</option>
 			</c:forEach>
 			</select>個</p>
 		</td>
     </tr>
-	<%
-	i++;
-	%>
 	</c:forEach>
 </table>
 <input type="submit" class="btn-flat-border bu1" formaction="payment" value="購入する">

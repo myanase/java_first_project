@@ -14,7 +14,7 @@
     </h1>
     <nav class="pc-nav">
         <ul>
-            <li><a href="#"><img src="<%=request.getContextPath()%>/image/cart.png"></a></li>
+            <li><a href="cart"><img src="<%=request.getContextPath()%>/image/cart.png"></a></li>
             <li><a href="#"><img src="<%=request.getContextPath()%>/image/mypage.png"></a></li>
         </ul>
     </nav>

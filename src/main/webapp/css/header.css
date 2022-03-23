@@ -34,6 +34,7 @@ header {
 h1 {
    margin: 0; padding: 0;
    font-size: 25px;
+   color: #7e5f4d;
 }
 a {	
    text-decoration: none;
@@ -222,4 +223,40 @@ label {
   right: 420px;
 }
 
- 
+/*
+ * 購入フォーム
+ */
+.wrapper{
+	margin: 0 auto;
+	width: 30%;
+}
+.theme{
+	font-weight:bold;	
+	padding: 20px 10px;
+	color:#7e5f4d;
+}
+.theme span{
+	font-weight:bold;	
+	color:#ffff00;
+	text-shadow:1px 1px 0 #7e5f4d, -1px -1px 0 #7e5f4d,
+              -1px 1px 0 #7e5f4d, 1px -1px 0 #7e5f4d,
+              0px 1px 0 #7e5f4d,  0-1px 0 #7e5f4d,
+              -1px 0 0 #7e5f4d, 1px 0 0 #7e5f4d;
+}
+.address{
+	color:#7e5f4d;
+}
+.submit{
+  text-decoration: none;
+  color: #7e5f4d;
+  border-radius: 3px;
+  background-color: #fff;
+  width:200px;
+  border: solid 2px #7e5f4d;
+  margin: 10px 20px;
+  padding: 6px 10px;
+}
+.submit:hover {
+  background: #ffff00;
+  color: #7e5f4d;
+}
